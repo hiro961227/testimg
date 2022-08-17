@@ -19,11 +19,11 @@ const img = new Image()
 img.src = currentFrame(1);
 if(mobile){
     console.log('mobile')
-    const displayWidth  = canvas.clientWidth;
-    const displayHeight = canvas.clientHeight;
+    const displayWidth  = canvas.clientWidth *2;
+    const displayHeight = canvas.clientHeight *2;
 
-    canvas.width=  displayWidth;
-    canvas.height= displayHeight;
+    canvas.width= displayHeight;
+    canvas.height= displayWidth;
 }else{
     console.log('pc')
     canvas.width=720;
