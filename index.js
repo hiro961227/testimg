@@ -1,6 +1,7 @@
 const html = document.documentElement;
 const canvas = document.getElementById("meonji");
 const context = canvas.getContext("2d");
+var mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));
 
 const frameCount = 670;
 const currentFrame = index => (
@@ -16,8 +17,18 @@ const preloadImages = () => {
 
 const img = new Image()
 img.src = currentFrame(1);
-canvas.width=720;
-canvas.height=1280;
+if(mobile){
+    console.log('mobile')
+    const displayWidth  = canvas.clientWidth;
+    const displayHeight = canvas.clientHeight;
+
+    canvas.width=  displayWidth;
+    canvas.height= displayHeight;
+}else{
+    console.log('pc')
+    canvas.width=720;
+    canvas.height=1280;
+}
 img.onload=function(){
   context.drawImage(img, 0, 0);
 }
